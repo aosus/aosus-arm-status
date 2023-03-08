@@ -1,0 +1,6 @@
+{
+    email {env.EMAIL}
+}
+status.aosus.org {
+    reverse_proxy uptime-kuma:3001
+}
