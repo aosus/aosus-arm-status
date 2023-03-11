@@ -35,7 +35,7 @@ services:
       - WATCHTOWER_NOTIFICATIONS_LEVEL=error
       - WATCHTOWER_NOTIFICATIONS=shoutrrr
       - WATCHTOWER_NOTIFICATION_URL
-      - 'WATCHTOWER_NOTIFICATION_TEMPLATE={{range .}} - watchtower-aosus-status: {{println}} {{.Message}}{{end}}'
+      - WATCHTOWER_NOTIFICATIONS_HOSTNAME=aosus-oc-status
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_SCHEDULE=* * 21 ? * *
       - WATCHTOWER_ROLLING_RESTART=true
