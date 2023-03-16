@@ -27,7 +27,7 @@ services:
       web:
 
   watchtower:
-    image: containrrr/watchtower:latest
+    image: ghcr.io/containrrr/watchtower:latest
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
