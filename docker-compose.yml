@@ -11,6 +11,8 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
+    environment:
+      - EMAIL
     volumes:
       - /home/ubuntu/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
       - data:/data
