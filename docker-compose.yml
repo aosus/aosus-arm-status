@@ -5,7 +5,7 @@ networks:
 
 services:
   caddy:
-    image: caddy:2.6.4-alpine
+    image: caddy:2.6.4-alpine@sha256:eefd3d61e9ee8f35e046f614982d9a970006e3943c6e5f09957a4048f4c80d35
     restart: always
     ports:
       - "80:80"
@@ -23,7 +23,7 @@ services:
       web:
 
   uptime-kuma:
-    image: louislam/uptime-kuma:1.21.1
+    image: louislam/uptime-kuma:1.21.1@sha256:b302edd66b7d130f7d4b2777a212674f046909721b5a66d7c1858505a4780981
     restart: always
     volumes:
       - /home/ubuntu/uptime-kuma:/app/data
