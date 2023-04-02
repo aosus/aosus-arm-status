@@ -5,5 +5,4 @@ Server used for monitoring Aosus infrastructure
 
 ## Services
 - Uptime-kuma
-- Watchtower
 - Caddy
