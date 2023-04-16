@@ -1,0 +1,15 @@
+version: "3.7"
+
+networks:
+  web:
+    external: true
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:1.21.1@sha256:b302edd66b7d130f7d4b2777a212674f046909721b5a66d7c1858505a4780981
+    container_name: uptime-kuma
+    restart: always
+    volumes:
+      - /home/ubuntu/uptime-kuma:/app/data
+    networks:
+      web:

@@ -1,10 +1,9 @@
-name: deploy-status
+name: deploy-caddy
 
 on:
   push:
     paths:
-      - '.github/**'
-      - 'docker-compose.yml'
+      - '.github/workflows/caddy.yml'
       - 'caddy/**'
     branches: [main]
   workflow_dispatch:
@@ -28,11 +27,11 @@ jobs:
       - name: Start Deployment
         uses: FarisZR/docker-compose-gitops-action@v1
         env:
-          WATCHTOWER_NOTIFICATION_URL: ${{ secrets.watchtower_notification_url }}
-          EMAIL: ${{ secrets.caddy_email }}
+          EMAIL: ${{ secrets.email }}
         with:
           remote_docker_host: ${{ secrets.server_address }}
           tailscale_ssh: true # no need for manual private and public keys
-          upload_directory: true # upload docker directory
-          docker_compose_directory: caddy # directory to upload
-          args: -p status up -d
+          compose_file_path: caddy/docker-compose.yml
+          args: -p caddy up -d --remove-orphans
+          upload_directory: true
+          docker_compose_directory: caddy

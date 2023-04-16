@@ -1,12 +1,12 @@
-version: "3.7"
-
 networks:
   web:
+    external: true
 
 services:
   caddy:
     image: caddy:2.6.4-alpine@sha256:eefd3d61e9ee8f35e046f614982d9a970006e3943c6e5f09957a4048f4c80d35
     restart: always
+    container_name: caddy
     ports:
       - "80:80"
       - "443:443"
@@ -19,14 +19,6 @@ services:
     volumes:
       - data:/data
       - config:/config
-    networks:
-      web:
-
-  uptime-kuma:
-    image: louislam/uptime-kuma:1.21.2@sha256:cf61d3262b29e1c48cc2ac284c9264227bbc46168f408e5f4c4d6301f0629e41
-    restart: always
-    volumes:
-      - /home/ubuntu/uptime-kuma:/app/data
     networks:
       web:
 

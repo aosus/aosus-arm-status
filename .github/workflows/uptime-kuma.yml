@@ -1,0 +1,36 @@
+name: deploy-uptime-kuma
+
+on:
+  push:
+    paths:
+      - '.github/workflows/uptime-kuma.yml'
+      - 'uptime-kuma/**'
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: uptime-kuma
+      url: https://status.aosus.org
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Tailscale
+        uses: tailscale/github-action@ce41a99162202a647a4b24c30c558a567b926709
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY }}
+          hostname: Github-actions
+          version: ${{ vars.TAILSCALE_VERSION }}
+
+      - name: Start Deployment
+        uses: FarisZR/docker-compose-gitops-action@v1
+        with:
+          remote_docker_host: ${{ secrets.server_address }}
+          tailscale_ssh: true # no need for manual private and public keys
+          compose_file_path: uptime-kuma/docker-compose.yml
+          args: -p uptime-kuma up -d --remove-orphans
