@@ -1,0 +1,16 @@
+networks:
+  web:
+    external: true
+
+services:
+  scribe:
+    container_name: scribe
+    image: oci.fariszr.com/fariszr/scribe:latest@sha256:8e67aa08802dc2faff257a7bd12d1631c050a9f560a7010c2e19cb3ab3a632ed
+    restart: always
+    environment:
+      - APP_DOMAIN=scribe.aosus.link
+      - LUCKY_ENV=production
+      - PORT=8080
+      - SECRET_KEY_BASE
+    networks:
+      web:
