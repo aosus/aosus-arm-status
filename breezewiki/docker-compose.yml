@@ -1,0 +1,15 @@
+networks:
+  web:
+    external: true
+
+services:
+  breezewiki:
+    container_name: breezewiki
+    image: oci.fariszr.com/fariszr/breezewiki:latest@sha256:c364dea59ad54eeb84bd6257f52125e8d280be1f179fa789f9aedb679d00a463
+    restart: always
+    environment:
+      - bw_canonical_origin=breezewiki.aosus.link
+      - bw_feature_search_suggestions=true
+      - bw_port=8000
+    networks:
+      web:
