@@ -6,4 +6,5 @@ Server used for monitoring Aosus infrastructure
 ## Services
 - Uptime-kuma
 - Caddy
+- breezewiki
 - scribe
