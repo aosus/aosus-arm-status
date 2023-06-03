@@ -1,4 +1,4 @@
-# aosus-oc-status
+# aosus-arm-status
 
 Server used for monitoring Aosus infrastructure
 خادم يستخدم لمراقبة حالة خوادم أسس.
@@ -6,5 +6,4 @@ Server used for monitoring Aosus infrastructure
 ## Services
 - Uptime-kuma
 - Caddy
-- breezewiki
 - scribe
