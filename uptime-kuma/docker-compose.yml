@@ -6,7 +6,7 @@ networks:
 
 services:
   uptime-kuma:
-    image: louislam/uptime-kuma:1.23.17@sha256:0e192c54160b6e3a799dd1ebf4178430fc630a41cd1b6889a148e0e472494a55
+    image: louislam/uptime-kuma:2.0.1@sha256:60e6fe0c481b452633cef1a47c1096633b36e6871c5cd97ec61039de1706e1f3
     container_name: uptime-kuma
     restart: always
     volumes:
